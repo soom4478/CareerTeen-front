@@ -1,7 +1,8 @@
-import styles from "./page.module.css";
-
+// 예: src/app/page.tsx
 export default function Home() {
   return (
-    <div className={styles.page}>app 페이지</div>
-  );
+    <div className="text-3xl font-bold text-blue-500">
+      Hello Tailwind!
+    </div>
+  )
 }
