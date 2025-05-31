@@ -12,7 +12,7 @@ export default function Header() {
 
     return (
         <header>
-            <div className="w-[90%] h-20 mt-7 mx-auto mb-10 items-center justify-between">
+            <div className="w-[90%] h-20 mt-7 mx-auto mb-10 items-center justify-between font-preendard font-medium">
                 <Image
                     src="/images/careerteenLogo.png"
                     alt="career teen"

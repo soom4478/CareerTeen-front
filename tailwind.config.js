@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         preendard: ['Pretendard', 'sans-serif'],
+        paperlogy: ['Paperlogy', 'sans-serif'],
       }
     },
   },
