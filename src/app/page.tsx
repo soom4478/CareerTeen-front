@@ -1,8 +1,7 @@
-// 예: src/app/page.tsx
 export default function Home() {
   return (
-    <div className="text-3xl font-bold text-blue-500">
-      Hello Tailwind!
+    <div className="font-preendard font-medium">
+      <div className="w-[90%] mx-auto border-r-2">213</div>
     </div>
   )
 }

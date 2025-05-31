@@ -5,7 +5,11 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}', // 컴포넌트
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        preendard: ['Pretendard', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
 }
