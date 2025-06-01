@@ -8,11 +8,11 @@ export default function Home() {
   const router = useRouter();
 
   const categories = [
-    { name: "사무직", img: "/images/cate1.png" },
-    { name: "IT", img: "/images/cate2.png" },
-    { name: "디자인", img: "/images/cate3.png" },
-    { name: "요식", img: "/images/cate4.png" },
-    { name: "마케팅", img: "/images/cate5.png" },
+    { key: "office", name: "사무직", img: "/images/cate1.png" },
+    { key: "it", name: "IT", img: "/images/cate2.png" },
+    { key: "design", name: "디자인", img: "/images/cate3.png" },
+    { key: "food", name: "요식", img: "/images/cate4.png" },
+    { key: "marketing", name: "마케팅", img: "/images/cate5.png" },
   ];
 
   const step = [
@@ -22,33 +22,30 @@ export default function Home() {
     { category: "컴활 | 취업", badge: "자격증", title: "컴퓨터활용능력 2급 꿀팁!" },
   ]
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const p = e.currentTarget.querySelector("p");
-    if(!p) return;
-    const text = p.innerText;
-    router.push(`/category/${text}`);
+  const handleClick = (index: number) => {
+    router.push(`category/${categories[index].key}`);
   }
 
   return (
     <div className="font-Paperlogy font-medium overflow-auto">
       <InfoCardList />
       <div className="w-[90%] mx-auto mt-[85px] rounded-[12px] bg-[#E0E6F2] px-[20px] py-[14px] flex gap-[20px]">
-        {categories.map((category, idx) => (
+        {categories.map((cate, idx) => (
           <div
             key={idx}
             className="flex-1 text-center flex flex-col gap-[10px] font-preendard font-medium text-[#2D4C67] text-[15px]"
-            onClick={handleClick}
+            onClick={() => handleClick(idx)}
           >
             <div className="rounded-[50%] w-[47px] h-[47px] bg-white flex items-center justify-center mx-auto">
               <Image
-                src={category.img}
-                alt={category.name}
+                src={cate.img}
+                alt={cate.name}
                 width={33}
                 height={0}
                 style={{ height: "auto" }}
               />
             </div>
-            <p>{category.name}</p>
+            <p>{cate.name}</p>
           </div>
         ))}
       </div>
@@ -57,9 +54,9 @@ export default function Home() {
         <p className="text-[16px] text-[#888] font-preendard mb-[35px]">취업하기 전 이 내용을 확인하고 모두합격하시길 바랍니다!</p>
         <div className="flex flex-col gap-[20px]">
           {
-            step.map((item, index) => (
+            step.map((item, idx) => (
               <div
-                key={index}
+                key={idx}
                 className="rounded-[8px] border border-[#CCC] bg-white px-[20px] py-[18px] flex flex-col relative transition-shadow duration-300 hover:shadow-[0.548px_2.193px_5.482px_0px_rgba(0,0,0,0.10)]"
               >
                 <div className="flex items-center relative mb-[61px]">

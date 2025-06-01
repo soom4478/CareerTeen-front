@@ -14,9 +14,9 @@ export default function InfoCardList() {
             style={{ height: "auto" }}
             className="absolute right-0 bottom-[-14px]"/>
         </div>
-        <div className="h-[223px] flex gap-[2%] text-[16px] leading-[140%]">
-          <div className="card-gradient2 w-full px-[19px] py-[24px] text-white">
-            <p>메일 이렇게만<br/>작성하세요!</p>
+        <div className="font-paperlogy font-medium h-[223px] flex gap-[2%] text-[13.5px] leading-[140%]">
+          <div className="card-gradient2 w-full px-[4%] py-[4.5%] text-white">
+            <p className="leading-[140%]">메일 이렇게만<br/>작성하세요!</p>
             <Image
               src="/images/mail.png"
               alt="메일"
@@ -25,8 +25,8 @@ export default function InfoCardList() {
               style={{ height: "auto" }}
               className="mt-[33px] first-letter:"/>
           </div>
-          <div className="card-gradient3 w-full px-[19px] py-[24px] text-black">
-            <p>회사에서 모르면<br/>안되는 '예의'</p>
+          <div className="card-gradient3 w-full px-[4%] py-[4.5%] text-black">
+            <p className="leading-[140%]">회사에서 모르면<br/>안되는 '예의'</p>
             <Image
               src="/images/document.png"
               alt="메일"
@@ -35,8 +35,8 @@ export default function InfoCardList() {
               style={{ height: "auto" }}
               className="mt-[33px]"/>
           </div>
-          <div className="card-gradient4 w-full px-[19px] py-[24px] text-white">
-            <p>포괄? 비포괄?<br/>취업 용어<br/>알아보기</p>
+          <div className="card-gradient4 w-full px-[4%] py-[4.5%] text-white">
+            <p className="leading-[140%]">포괄? 비포괄?<br/>취업 용어<br/>알아보기</p>
             <Image
               src="/images/file.png"
               alt="메일"
