@@ -49,6 +49,29 @@ export default function Page() {
         }
     ]
 
+    const mentoData = [
+        {
+            name: "김주윤",
+            impo: "4년차 | 회계사무원",
+        },
+        {
+            name: "김주윤",
+            impo: "4년차 | 회계사무원",
+        },
+        {
+            name: "김주윤",
+            impo: "4년차 | 회계사무원",
+        },
+        {
+            name: "김주윤",
+            impo: "4년차 | 회계사무원",
+        },
+        {
+            name: "김주윤",
+            impo: "4년차 | 회계사무원",
+        },
+    ]
+
     return (
         <div>
             <div className="w-[90%] mx-auto flex flex-col gap-[15px]">
@@ -108,19 +131,48 @@ export default function Page() {
                 </div>
                 <div className="horizontalScroll mb-[46px]">
                     <div className="inline-flex gap-[12px] px-[24px]">
-                        <div className="group mento-card relative">
-                            <button className="hidden group-hover:block absolute right-[50%] translate-x-[50%] bottom-[24px] px-[18px] py-[12px] rounded-[5px] bg-[#3C98E9] font-preendard font-medium text-[14px] text-white">멘토 신청하기</button>
-                        </div>
-                        <div className="mento-card"></div>
+                        {
+                            mentoData.map((impo, idx) => {
+                                if(idx < 2) {
+                                    return(
+                                        <div
+                                            className="group mento-card relative flex"
+                                            key={idx}>
+                                            <div className="card-shadow" />
+                                            <div className="text-center text-[#FFF] absolute bottom-[16px] right-[50%] translate-x-[50%]">
+                                                <p className="font-preendard font-semibold text-[18px]">김주윤</p>
+                                                <p className="text-[15px]"></p>
+                                                <button className="mt-[10px] hidden group-hover:block mx-auto px-[18px] py-[12px] rounded-[5px] bg-[#3C98E9] font-preendard font-medium text-[14px] text-white">멘토 신청하기</button>
+                                            </div>
+                                        </div>
+                                    )
+                                }                                
+                            })
+                        }
                         <div className="w-[199px] h-[161px] bg-[#84A8FC] rounded-[8px]"></div>
                     </div>
                 </div>
                 <div className="horizontalScroll">
                     <div className="inline-flex gap-[12px] px-[24px]">
                         <div className="w-[199px] h-[161px] bg-[#2F4F82] rounded-[8px]"></div>
-                        <div className="mento-card"></div>
-                        <div className="mento-card"></div>
-                        <div className="mento-card"></div>
+                        {
+                            mentoData.map((impo, idx) => {
+                                if(idx >= 2) {
+                                    return(
+                                        <div
+                                            className="group mento-card relative flex"
+                                            key={idx}>
+                                            <div className="card-shadow" />
+                                            <div className="text-center text-[#FFF] absolute bottom-[16px] right-[50%] translate-x-[50%]">
+                                                <p className="font-preendard font-semibold text-[18px]">김주윤</p>
+                                                <p className="text-[15px]"></p>
+                                                <button className="mt-[10px] hidden group-hover:block mx-auto px-[18px] py-[12px] rounded-[5px] bg-[#3C98E9] font-preendard font-medium text-[14px] text-white">멘토 신청하기</button>
+                                            </div>
+                                        </div>
+                                    )
+                                }                                
+                            })
+                        }
                     </div>
                 </div>
             </div>
