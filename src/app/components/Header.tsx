@@ -9,6 +9,9 @@ export default function Header() {
     const chatIconClick = () => {
         router.push('/chat');
     }
+    const logoIconClick = () => {
+        router.push('/');
+    }
 
     return (
         <header>
@@ -20,6 +23,7 @@ export default function Header() {
                     height={0}
                     style={{ height: "auto" }}
                     className="mb-6"
+                    onClick={logoIconClick}
                 />
                 <div className="flex relative mb-10 font-{17px} text-gray-500">
                     <ul className="flex gap-8">
