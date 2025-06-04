@@ -5,72 +5,15 @@ import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 
+import { recommendedMento, categoryList } from "../../data/categories";
+
 export default function Page() {
     const router = useRouter();
 
     const params = useParams();
     const selectedCategory = params.id;
     
-    const categories = ['office', 'it', 'design', 'food', 'marketing'];
-
-    const personalHistory = [
-        {
-            date: "2017.08",
-            name: "7급 공무원 준비 시작",
-        },
-        {
-            date: "2017.08",
-            name: "7급 공무원 준비 시작",
-        },
-        {
-            date: "2017.08",
-            name: "7급 공무원 준비 시작",
-        },
-    ]
-
-    const introduction = "인사 전문가로서 고졸 취업 준비생 여러분께 실질적인 취업 조언을 드리겠습니다. 저의 경험을 바탕으로 효과적인 취업 전략과 면접 준비 방법을 알려드리며, 현재의 직장에 입사하게 된 과정을 상세히 공유해드리겠습니다.";
-
-    const impo = [
-        {
-            title: "사무실 빌런 유형 / 대처방법",
-            detail: "어느 사무실에나 존재하는 빌런. 더 이상 피할 수 없을 때, 현명하게 대처하는 방법을 알아보자.",
-        },
-        {
-            title: "사무실 빌런 유형 / 대처방법",
-            detail: "어느 사무실에나 존재하는 빌런. 더 이상 피할 수 없을 때, 현명하게 대처하는 방법을 알아보자.",
-        },
-        {
-            title: "사무실 빌런 유형 / 대처방법",
-            detail: "어느 사무실에나 존재하는 빌런. 더 이상 피할 수 없을 때, 현명하게 대처하는 방법을 알아보자.",
-        },
-        {
-            title: "사무실 빌런 유형 / 대처방법",
-            detail: "어느 사무실에나 존재하는 빌런. 더 이상 피할 수 없을 때, 현명하게 대처하는 방법을 알아보자.",
-        }
-    ]
-
-    const mentoData = [
-        {
-            name: "김주윤",
-            impo: "4년차 | 회계사무원",
-        },
-        {
-            name: "김주윤",
-            impo: "4년차 | 회계사무원",
-        },
-        {
-            name: "김주윤",
-            impo: "4년차 | 회계사무원",
-        },
-        {
-            name: "김주윤",
-            impo: "4년차 | 회계사무원",
-        },
-        {
-            name: "김주윤",
-            impo: "4년차 | 회계사무원",
-        },
-    ]
+    const data = categoryList.find(item => item.key === selectedCategory);
 
     return (
         <div>
@@ -84,18 +27,22 @@ export default function Page() {
                         height={0}
                         style={{ height: "auto" }}
                         className="rounded-[8px]" />
-                    <p className="absolute bottom-[23px] left-[18px] text-white font-medium text-[22px] leading-[130%]">"A부터 Z까지<br/>도와드립니다"</p>
+                    <p className="w-[50%] absolute bottom-[23px] left-[18px] text-white font-medium text-[22px] leading-[130%]">{recommendedMento.Greetings}</p>
                     <div className="mentoImpo-card px-[18px] py-[19px]">
                         <p className="font-preendard font-semibold leading-[135%] text-[15px] text-[#276FE2] mb-[19px]">인적사항</p>
                         <div className="flex items-center gap-[6px] mb-[11px]">
-                            <p className="font-preendard font-semibold text-[20px]">강지우</p>
-                            <p className="font-preendard font-medium leading-[130%] text-[16px] text-[#7C7C7C]">24세</p>
+                            <p className="font-preendard font-semibold text-[20px]">{recommendedMento.info.name}</p>
+                            <p className="font-preendard font-medium leading-[130%] text-[16px] text-[#7C7C7C]">{recommendedMento.info.age}</p>
                         </div>
-                        <p className="font-preendard font-medium text-[#333] text-[16px]">콘텐츠 마케터</p>
+                        <p className="font-preendard font-medium text-[#333] text-[16px]">{recommendedMento.info.job}</p>
                         <div className="absolute bottom-[18px] inline-flex flex-col items-start gap-[2px] font-preendard text-[13px] text-[#8D8D8D]">
-                            <p>#ESFJ</p>
-                            <p>#겉바속촉</p>
-                            <p>#하나부터 열까지</p>
+                            {
+                                recommendedMento.info.tag.map((tag, idx) => {
+                                    return(
+                                        <p key={idx}>#{tag}</p>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>
@@ -103,7 +50,7 @@ export default function Page() {
                     <p className="font-preendard font-semibold text-[15px] text-[#276FE2] mb-[24px]">경력</p>
                     <div className="flex flex-col gap-[8px]">
                         {
-                            personalHistory.map((history, idx) => {
+                            recommendedMento.personalHistory.map((history, idx) => {
                                 return(
                                     <div
                                         key={idx}
@@ -118,7 +65,7 @@ export default function Page() {
                 </div>
                 <div className="mentoImpo-card p-[20px]">
                     <p className="font-preendard font-semibold text-[15px] text-[#276FE2] mb-[24px]">소개말</p>
-                    <p className="text-[#333] font-preendard text-[16px] leading-[150%]">{introduction}</p>
+                    <p className="text-[#333] font-preendard text-[16px] leading-[150%]">{recommendedMento.introduction}</p>
                 </div>
             </div>
             <div className="flex justify-end mb-[151px]">
@@ -132,7 +79,7 @@ export default function Page() {
                 <div className="horizontalScroll mb-[46px]">
                     <div className="inline-flex gap-[12px] px-[24px]">
                         {
-                            mentoData.map((impo, idx) => {
+                            data?.mentoData.map((info, idx) => {
                                 if(idx < 2) {
                                     return(
                                         <div
@@ -140,8 +87,8 @@ export default function Page() {
                                             key={idx}>
                                             <div className="card-shadow" />
                                             <div className="text-center text-[#FFF] absolute bottom-[16px] right-[50%] translate-x-[50%]">
-                                                <p className="font-preendard font-semibold text-[18px]">김주윤</p>
-                                                <p className="text-[15px]"></p>
+                                                <p className="font-preendard font-semibold text-[18px]">{info.name}</p>
+                                                <p className="text-[15px]">{info.info}</p>
                                                 <button className="mt-[10px] hidden group-hover:block mx-auto px-[18px] py-[12px] rounded-[5px] bg-[#3C98E9] font-preendard font-medium text-[14px] text-white">멘토 신청하기</button>
                                             </div>
                                         </div>
@@ -156,7 +103,7 @@ export default function Page() {
                     <div className="inline-flex gap-[12px] px-[24px]">
                         <div className="w-[199px] h-[161px] bg-[#2F4F82] rounded-[8px]"></div>
                         {
-                            mentoData.map((impo, idx) => {
+                            data?.mentoData.map((info, idx) => {
                                 if(idx >= 2) {
                                     return(
                                         <div
@@ -164,8 +111,8 @@ export default function Page() {
                                             key={idx}>
                                             <div className="card-shadow" />
                                             <div className="text-center text-[#FFF] absolute bottom-[16px] right-[50%] translate-x-[50%]">
-                                                <p className="font-preendard font-semibold text-[18px]">김주윤</p>
-                                                <p className="text-[15px]"></p>
+                                                <p className="font-preendard font-semibold text-[18px]">{info.name}</p>
+                                                <p className="text-[15px]">{info.info}</p>
                                                 <button className="mt-[10px] hidden group-hover:block mx-auto px-[18px] py-[12px] rounded-[5px] bg-[#3C98E9] font-preendard font-medium text-[14px] text-white">멘토 신청하기</button>
                                             </div>
                                         </div>
@@ -189,21 +136,23 @@ export default function Page() {
                 <div className="flex flex-col gap-[55px]">
                     <div>
                         <div className="h-[436px] rounded-[6px] mb-[18px] bg-slate-500" />
-                        <p className="font-preendard font-semibold text-[24px] mb-[6px]">리서치 방법</p>
-                        <p className="font-preendard font-medium text-[#999] text-[16px]">지식인과 나무위키는 이제 그만... 진짜 실무에서 사용하는 리서치 방법 소개.</p>
+                        <p className="font-preendard font-semibold text-[24px] mb-[6px]">{data?.imfos[0].title}</p>
+                        <p className="font-preendard font-medium text-[#999] text-[16px]">{data?.imfos[0].explanation}</p>
                     </div>
                     {
-                        impo.map((impo, idx) => {
-                            return(
-                                <div
-                                    key={idx}>
-                                    <div>
-                                        <div className="h-[137px] rounded-[6px] mb-[18px] bg-slate-500" />
-                                        <p className="font-preendard font-semibold text-[24px] mb-[6px]">{impo.title}</p>
-                                        <p className="font-preendard font-medium text-[#999] text-[16px]">{impo.detail}</p>
+                        data?.imfos.map((impo, idx) => {
+                            if(idx > 0) {
+                                return(
+                                    <div
+                                        key={idx}>
+                                        <div>
+                                            <div className="h-[137px] rounded-[6px] mb-[18px] bg-slate-500" />
+                                            <p className="font-preendard font-semibold text-[24px] mb-[6px]">{impo.title}</p>
+                                            <p className="font-preendard font-medium text-[#999] text-[16px]">{impo.explanation}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            )
+                                )
+                            }
                         })
                     }
                 </div>
