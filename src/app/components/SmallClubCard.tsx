@@ -40,15 +40,15 @@ export default function SmallClubCard({
             })
           }
         </div>
-        <p className="font-semibold text-[19px]">독서토론 모임</p>
+        <p className="font-semibold text-[19px]">{title}</p>
         <div className="flex gap-[20px] font-medium text-[#777] text-[14px]">
           <div className="flex gap-[1px]">
             <Image
               src="/images/locationIcon.png"
               alt="위치"
               width={18}
-              height={0}
-              style={{ height: "auto" }} />
+              height={18}
+              className="object-contain" />
               {location}
           </div>
           <div className="flex gap-[3px]">
@@ -56,8 +56,8 @@ export default function SmallClubCard({
                 src="/images/peopleIcon.png"
                 alt="위치"
                 width={18}
-                height={0}
-                style={{ height: "auto" }} />
+                height={28}
+                className="object-contain" />
                 {peopleCount}/{peopleMax}
           </div>
         </div>

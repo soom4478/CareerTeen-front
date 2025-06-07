@@ -27,7 +27,7 @@ export default function Header() {
                 />
                 <div className="flex relative mb-10 font-{17px} text-gray-500">
                     <ul className="flex gap-8">
-                        <li><a href="/study">스터디 그룹</a></li>
+                        <li><a href="/club">스터디 그룹</a></li>
                         <li><a href="/board">게시판</a></li>
                         <li><a href="/my">마이페이지</a></li>
                     </ul>

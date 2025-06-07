@@ -47,8 +47,8 @@ export default function MediumClubCard({
               src="/images/locationIcon.png"
               alt="위치"
               width={20}
-              height={0}
-              style={{ height: "auto" }} />
+              height={20}
+              className="object-contain" />
               {location}
           </div>
           <div className="flex gap-[3px]">
@@ -56,8 +56,8 @@ export default function MediumClubCard({
                 src="/images/peopleIcon.png"
                 alt="위치"
                 width={20}
-                height={0}
-                style={{ height: "auto" }} />
+                height={20}
+                className="object-contain" />
                 {peopleCount}/{peopleMax}
           </div>
         </div>
