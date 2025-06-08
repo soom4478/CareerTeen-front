@@ -103,4 +103,7 @@ body {
   .tagBox3 {
     @apply text-[#555] text-[13px] font-preendard font-medium px-[9px] py-[5px] rounded-[5px] border border-[#CCC];
   }
+  .boardDetailBox {
+    @apply px-[20px] py-[13px] rounded-[7px] border border-[#D7D7D7]
+  }
 }

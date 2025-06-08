@@ -98,7 +98,7 @@ export default function Page() {
                                     {currentClub.location}
                                 </div>
                                 <div className="flex gap-[3px] items-center">
-                                    <Image src="/images/peopleIcon.png" alt="인원" width={20} height={20} className="object-contain" />
+                                    <Image src="/images/peopleIcon.png" alt="인원" width={20} height={20} className="object-contain " />
                                     {currentClub.peopleCount}/{currentClub.peopleMax}
                                 </div>
                             </div>
