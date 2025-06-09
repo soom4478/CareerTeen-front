@@ -96,7 +96,7 @@ export default function Page() {
                 <p className="font-medium text-[24px] mt-[49px] mb-[21px]">모임 소개</p>
                 <textarea
                     placeholder="내용을 작성해주세요"
-                    className="w-full h-[382px] border border-[#CCC] rounded-[10px] px-[26px] py-[28px]"
+                    className="w-full h-[382px] border border-[#CCC] rounded-[10px] px-[26px] py-[28px] text-[18px] text-[#888]"
                 ></textarea>
             </div>
             <div className="flex justify-end gap-[10px] mt-[57px] mb-[154px]">
