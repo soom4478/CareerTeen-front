@@ -125,4 +125,10 @@ body {
   .info-text {
     @apply font-medium text-[#333] text-[19px]
   }
+  .clubInputTitle {
+    @apply font-medium text-[20px]
+  }
+  .clubInputBox {
+    @apply px-[15px] py-[9px] rounded-[8px] border border-[#CCC] bg-[#F5F5F5] font-medium text-[20px] placeholder:text-[#AAA]
+  }
 }
