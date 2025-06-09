@@ -24,6 +24,13 @@
 }
 
 @font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/PRETENDARD-LIGHT.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Paperlogy';
   src: url('/fonts/Paperlogy-4Regular.ttf') format('truetype');
   font-weight: 400;
@@ -81,6 +88,12 @@ body {
   }
   .mentoButton:hover {
     box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.16);
+  }
+  .button1 {
+    @apply px-[25px] py-[13px] border border-[#777] rounded-[5px] font-medium text-[#777] text-[18px]
+  }
+  .button2 {
+    @apply px-[25px] py-[13px] rounded-[5px] font-medium text-white text-[18px] bg-[#3C98E9]
   }
   .horizontalScroll {
     overflow: scroll;
