@@ -21,8 +21,8 @@ export default function CategoryDropdown({
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleSelect = (item: string) => {
-      if (selectedCategory !== item) {
-      onSelect(item);
+        if (selectedCategory !== item) {
+        onSelect(item);
     }
     setIsOpen(false);
     };
@@ -30,10 +30,7 @@ export default function CategoryDropdown({
   return (
     <div className="relative inline-flex items-center space-x-4">
         <div className="relative">
-            <div
-            onClick={() => setIsOpen(!isOpen)}
-            className="boardDetailBox cursor-pointer flex items-center justify-center gap-[12px]"
-            >
+            <div onClick={() => setIsOpen(!isOpen)} className="boardDetailBox cursor-pointer flex items-center justify-center gap-[12px]">
             {defaultLabel}
             <Image
                 src="/images/downArrow.png"
@@ -47,11 +44,11 @@ export default function CategoryDropdown({
             <div className="absolute top-full left-0 mt-2 w-40 bg-white border rounded-md shadow-lg z-10">
                 {categories.map((category) => (
                 <div
-                  key={category}
-                  onClick={() => selectedCategory !== category && handleSelect(category)}
-                  className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
-                    selectedCategory === category ? 'text-gray-400 cursor-not-allowed' : ''
-                  }`}
+                    key={category}
+                    onClick={() => selectedCategory !== category && handleSelect(category)}
+                    className={`px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                        selectedCategory === category ? 'text-gray-400 cursor-not-allowed' : ''
+                    }`}
                 >
                     {category}
                 </div>
@@ -62,24 +59,24 @@ export default function CategoryDropdown({
 
         {/* 선택된 카테고리 */}
         {selectedCategory && (
-          <div className="flex flex-wrap gap-2">
-            <span className="boardDetailBox flex items-center">
-              <span>{selectedCategory}</span>
-              <button
-                type="button"
-                onClick={() => onRemove(selectedCategory)}
-                className="ml-2 font-bold focus:outline-none"
-                aria-label={`Remove ${selectedCategory}`}
-              >
-                <Image
-                  src="/images/x.png"
-                  alt="삭제"
-                  width={12}
-                  height={12}
-                />
-              </button>
-            </span>
-          </div>
+            <div className="flex flex-wrap gap-2">
+                <span className="boardDetailBox flex items-center">
+                    <span>{selectedCategory}</span>
+                    <button
+                        type="button"
+                        onClick={() => onRemove(selectedCategory)}
+                        className="ml-2 font-bold focus:outline-none"
+                        aria-label={`Remove ${selectedCategory}`}
+                    >
+                        <Image
+                        src="/images/x.png"
+                        alt="삭제"
+                        width={12}
+                        height={12}
+                        />
+                    </button>
+                </span>
+            </div>
         )}
 
     </div>

@@ -119,4 +119,10 @@ body {
   .boardDetailBox {
     @apply px-[20px] py-[13px] rounded-[7px] border border-[#D7D7D7]
   }
+  .info-label {
+    @apply font-medium text-[#777] text-[18px]
+  }
+  .info-text {
+    @apply font-medium text-[#333] text-[19px]
+  }
 }
