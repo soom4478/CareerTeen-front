@@ -12,6 +12,10 @@ export default function Page() {
         router.push(`/club/${clubId}`);
     };
 
+    const handleCreateBtnClick = () => {
+        router.push('/club/create');
+    }
+
     const exampleData = [
         {
             id: 1,
@@ -165,7 +169,9 @@ export default function Page() {
                 <p className="text-[18px] font-paperlogy text-white">
                     다양한 모임을 만들고 취향을 공유해보세요!
                 </p>
-                <button className="bg-white text-[#5776FF] text-[20px] font-paperlogy font-medium px-[18px] py-[8px] rounded-[4px]">
+                <button
+                    onClick={handleCreateBtnClick}
+                    className="bg-white text-[#5776FF] text-[20px] font-paperlogy font-medium px-[18px] py-[8px] rounded-[4px]">
                     스터디그룹 만들기
                 </button>
             </div>
