@@ -9,16 +9,16 @@ export default function Page() {
     const [selected, setSelected] = React.useState<'최신순' | '인기순'>('최신순');
 
     const categories = ['시험·자격증', '혜택', '취업', '회사', '진로·미래'];
-    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const [selectedCategory, setSelectedCategory] = useState<string>("");
 
     const handleSelect = (category: string) => {
-        if (!selectedCategories.includes(category) && selectedCategories.length < 2) {
-        setSelectedCategories([...selectedCategories, category]);
+        if (selectedCategory !== category) {
+            setSelectedCategory(category);
         }
     };
 
-    const handleRemove = (category: string) => {
-        setSelectedCategories(selectedCategories.filter(c => c !== category));
+    const handleRemove = () => {
+        setSelectedCategory("");
     };
 
     return (
@@ -44,7 +44,7 @@ export default function Page() {
                 <div className="flex mt-[76px]">
                     <CategoryDropdown
                         categories={categories}
-                        selectedCategories={selectedCategories}
+                        selectedCategory={selectedCategory}
                         onSelect={handleSelect}
                         onRemove={handleRemove}
                         defaultLabel="카테고리"
