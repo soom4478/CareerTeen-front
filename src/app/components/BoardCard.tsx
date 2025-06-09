@@ -24,7 +24,7 @@ export default function BoardCard(board: BaordProps) {
                     <span className="font-medium text-[#888] text-[17px]">{board.category}</span>
                     <span className="text-[#999] text-[15px]">{board.date}</span>
                 </div>
-                <p className="font-medium text-[20px]">{board.title}</p>
+                <p className="font-medium text-[20px] line-clamp-2">{board.title}</p>
             </div>
         </div>
     )

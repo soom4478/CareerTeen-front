@@ -25,7 +25,8 @@ export default function MediumClubCard({
         src={imageUrl}
         alt="동아리 이미지"
         width={300}
-        height={204} />
+        height={204}
+        className="rounded-[8px]" />
       <div className="ml-[12px] flex flex-col gap-[13px]">
         <div className="flex gap-[12px]">
           {

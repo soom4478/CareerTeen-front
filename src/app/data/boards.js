@@ -1,7 +1,7 @@
 export const boardList = [
     {
         "id": 1,
-        "title": "7급 공무원 시험 후기인뎅 어쩌구 저쩌구",
+        "title": "7급 공무원 시험 후기인뎅 어쩌구 저쩌구 제목 더 길게 적어야 하는ㄴ데",
         "date": "2025.05.23",
         "category": "시험·자격증",
         "imgUrl": "/images/boardExImg.png",

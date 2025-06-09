@@ -25,7 +25,8 @@ export default function SmallClubCard({
         src={imageUrl}
         alt="동아리 이미지"
         width={200}
-        height={125} />
+        height={125}
+        className="rounded-[6px]" />
       <div className="ml-[6px] flex flex-col gap-[14px]">
         <div className="flex gap-[12px]">
           {
