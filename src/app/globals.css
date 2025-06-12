@@ -24,6 +24,13 @@
 }
 
 @font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/PRETENDARD-LIGHT.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Paperlogy';
   src: url('/fonts/Paperlogy-4Regular.ttf') format('truetype');
   font-weight: 400;
@@ -82,6 +89,12 @@ body {
   .mentoButton:hover {
     box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.16);
   }
+  .button1 {
+    @apply px-[25px] py-[13px] border border-[#777] rounded-[5px] font-medium text-[#777] text-[18px]
+  }
+  .button2 {
+    @apply px-[25px] py-[13px] rounded-[5px] font-medium text-white text-[18px] bg-[#3C98E9]
+  }
   .horizontalScroll {
     overflow: scroll;
     white-space: nowrap;
@@ -93,5 +106,29 @@ body {
     @apply w-full h-full rounded-[8px];
     position: absolute;
     background: linear-gradient(180deg, rgba(19, 19, 19, 0.00) 49.79%, rgba(19, 19, 19, 0.80) 100%);
+  }
+  .tagBox1 {
+    @apply text-[#555] text-[16px] font-preendard font-medium px-[15px] py-[8px] rounded-[5px] border border-[#CCC];
+  }
+  .tagBox2 {
+    @apply text-[#555] text-[16px] font-preendard font-medium px-[12px] py-[6px] rounded-[6px] border border-[#CCC];
+  }
+  .tagBox3 {
+    @apply text-[#555] text-[13px] font-preendard font-medium px-[9px] py-[5px] rounded-[5px] border border-[#CCC];
+  }
+  .boardDetailBox {
+    @apply px-[20px] py-[13px] rounded-[7px] border border-[#D7D7D7]
+  }
+  .info-label {
+    @apply font-medium text-[#777] text-[18px]
+  }
+  .info-text {
+    @apply font-medium text-[#333] text-[19px]
+  }
+  .clubInputTitle {
+    @apply font-medium text-[20px]
+  }
+  .clubInputBox {
+    @apply px-[15px] py-[9px] rounded-[8px] border border-[#CCC] bg-[#F5F5F5] font-medium text-[20px] placeholder:text-[#AAA]
   }
 }
