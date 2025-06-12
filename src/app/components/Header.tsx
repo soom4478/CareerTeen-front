@@ -14,8 +14,8 @@ export default function Header() {
     }
 
     return (
-        <header>
-            <div className="w-[90%] h-20 mt-7 mx-auto mb-10 items-center justify-between font-preendard font-medium">
+        <header className="relative">
+            <div className="w-[90%] h-20 pt-7 mx-auto mb-10 items-center justify-between font-preendard font-medium">
                 <Image
                     src="/images/careerteenLogo.png"
                     alt="career teen"
@@ -25,7 +25,7 @@ export default function Header() {
                     className="mb-6"
                     onClick={logoIconClick}
                 />
-                <div className="flex relative mb-10 font-{17px} text-gray-500">
+                <div className="flex relative font-{17px} text-gray-500">
                     <ul className="flex gap-8">
                         <li><a href="/club">스터디 그룹</a></li>
                         <li><a href="/board">게시판</a></li>
