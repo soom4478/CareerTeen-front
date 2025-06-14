@@ -14,8 +14,8 @@ export default function Header() {
     }
 
     return (
-        <header className="relative">
-            <div className="w-[90%] h-20 pt-7 mx-auto mb-10 items-center justify-between font-preendard font-medium">
+        <header className="relative py-[30px]">
+            <div className="w-[90%] h-20 mx-auto items-center justify-between font-preendard font-medium">
                 <Image
                     src="/images/careerteenLogo.png"
                     alt="career teen"

@@ -27,7 +27,7 @@ export default function Home() {
   }
 
   return (
-    <div className="font-Paperlogy font-medium overflow-auto bg-[#F5F6FA]">
+    <div className="font-Paperlogy font-medium overflow-auto bg-[#F5F6FA] mt-[15px]">
       <InfoCardList />
       <div className="w-[90%] mx-auto mt-[85px] rounded-[12px] bg-[#E0E6F2] px-[20px] py-[14px] flex gap-[20px]">
         {categories.map((cate, idx) => (
