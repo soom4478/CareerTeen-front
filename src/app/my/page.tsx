@@ -4,6 +4,7 @@ import Image from "next/image";
 import MyContentBox from "../components/MyContentBox";
 import MyMentoBox from "../components/MyMentoBox";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function() {
     const router = useRouter();
@@ -11,6 +12,8 @@ export default function() {
     const modifyButtonClick = () => {
         router.push('/my/modify');
     }
+
+    const [selectedBoard, setBoard] = useState(Number);
 
     const myClub = [
         {
@@ -25,6 +28,7 @@ export default function() {
 
     const myBoard = [
         {
+            id: 1,
             title: "좋은 포트폴리오",
             date: "2025.04.25"
         }
@@ -79,10 +83,24 @@ export default function() {
                 }
             </div>
             <div className="mt-[79px] flex flex-col gap-[24px]">
-                <p className="font-semibold text-[21px]">작성한 글</p>
+                <div className="flex justify-between">
+                    <p className="font-semibold text-[21px]">작성한 글</p>
+                    <div className="flex gap-[10px] text-[17px] text-[#555]">
+                        <button className="px-[16px] py-[9.5px] border border-[#CCC] bg-[#EEE] rounded-[50px]">수정하기</button>
+                        <button className="px-[16px] py-[9.5px] border border-[#CCC] rounded-[50px]">삭제하기</button>
+                    </div>
+                </div>
                 {
                     myBoard.map((board, idx) => (
-                        <MyContentBox title={board.title} date={board.date} key={idx} />
+                        <MyContentBox
+                            title={board.title}
+                            date={board.date}
+                            key={idx}
+                            // 컴포넌트 변경 및 호버 추가
+                            onClick={() => setBoard(board.id)}
+                            className={`boardDetailBox cursor-pointer ${
+                            board.id === selectedBoard ? 'bg-[#E7E7E7]' : null
+                            }`} />
                     ))
                 }
             </div>
