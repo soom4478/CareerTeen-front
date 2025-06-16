@@ -4,6 +4,12 @@ import "./globals.css";
 
 import Header from "./components/Header";
 import ConditionalFooter from "./components/ConditionalFooter";
+import LoginCard from "./components/LoginCard";
+import JoinCard1 from "./components/JoinCard1";
+import JoinCard2 from "./components/JoinCard2";
+import JoinCard3 from "./components/JoinCard3";
+import JoinCard4 from "./components/JoinCard4";
+import JoinCard5 from "./components/JoinCard5";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +35,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        {/* <LoginCard /> */}
+        {/* <JoinCard1 /> */}
+        {/* <JoinCard2 /> */}
+        {/* <JoinCard3 /> */}
+        {/* <JoinCard4 /> */}
+        <JoinCard5 />
         <Header />
         {children}
         <ConditionalFooter />

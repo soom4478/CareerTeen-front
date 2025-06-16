@@ -96,7 +96,6 @@ export default function() {
                             title={board.title}
                             date={board.date}
                             key={idx}
-                            // 컴포넌트 변경 및 호버 추가
                             onClick={() => setBoard(board.id)}
                             className={`boardDetailBox cursor-pointer ${
                             board.id === selectedBoard ? 'bg-[#E7E7E7]' : null

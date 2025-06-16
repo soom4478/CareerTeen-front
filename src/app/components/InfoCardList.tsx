@@ -4,7 +4,7 @@ export default function InfoCardList() {
     return(
         <div className="w-[90%] mx-auto flex flex-col gap-[20px]">
         <div className="card-gradient1 h-[252px] text-white p-[33px] flex flex-col gap-[16px] relative overflow-hidden">
-          <p className="relative z-10 text-[26px] leading-[130%]">똑똑한 고졸의 선택<br/>커리어틴</p>
+          <p className="relative z-0 text-[26px] leading-[130%]">똑똑한 고졸의 선택<br/>커리어틴</p>
           <p className="font-preendard relative z-10 text-[15px] leading-[140%]">나만의 멘토를 찾고 취업에<br/>한걸음 더 다가가보세요</p>
           <Image
             src="/images/leadingGrasses.png"
