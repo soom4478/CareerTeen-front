@@ -1,4 +1,9 @@
-export default function LoginCard() {
+interface StepCardProps {
+    onNext: () => void;
+    onClose: () => void;
+}
+
+export default function LoginCard({ onNext, onClose }: StepCardProps) {
     return (
         <div className="w-full h-full absolute z-20 px-[5%] overflow-hidden flex items-center backdrop-blur-[3px]"
             style={{ backgroundColor: 'rgba(2, 9, 17, 0.8)' }}>
@@ -13,8 +18,8 @@ export default function LoginCard() {
                     <input type="text" className="w-full px-[20px] py-[17px] rounded-[8px] border border-[#CCC] bg-[#F0F0F0]"></input>
                 </div>
                 <div className="flex flex-col gap-[16px]">
-                    <button className="py-[17px] rounded-[8px] bg-[#276FE2] font-medium text-white text-[19px] w-full">로그인</button>
-                    <button className="py-[17px] rounded-[8px] font-medium text-[#276FE2] text-[19px] w-full border border-[#276FE2]">로그인</button>
+                    <button onClick={onClose} className="py-[17px] rounded-[8px] bg-[#276FE2] font-medium text-white text-[19px] w-full">로그인</button>
+                    <button onClick={onNext} className="py-[17px] rounded-[8px] font-medium text-[#276FE2] text-[19px] w-full border border-[#276FE2]">회원가입</button>
                 </div>
             </form>
         </div>

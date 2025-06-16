@@ -1,7 +1,11 @@
 import Image from "next/image";
 import JoinSequenceBox from "./JoinSequenceBox";
+interface StepCardProps {
+    onBack: () => void;
+    onClose: () => void;
+}
 
-export default function JoinCard5() {
+export default function JoinCard5({ onBack, onClose }: StepCardProps) {
     return (
         <div className="w-full h-full absolute z-20 px-[5%] overflow-hidden flex items-center backdrop-blur-[3px]"
             style={{ backgroundColor: 'rgba(2, 9, 17, 0.8)' }}>
@@ -33,8 +37,8 @@ export default function JoinCard5() {
                     </div>
                 </div>
                 <div className="flex gap-[12px]">
-                    <button className="py-[17px] rounded-[8px] bg-[#EEE] font-medium text-[#555] text-[19px] w-full">뒤로가기</button>
-                    <button className="py-[17px] rounded-[8px] bg-[#276FE2] font-medium text-white text-[19px] w-full">다음</button>
+                    <button onClick={onBack} className="py-[17px] rounded-[8px] bg-[#EEE] font-medium text-[#555] text-[19px] w-full">뒤로가기</button>
+                    <button onClick={onClose} className="py-[17px] rounded-[8px] bg-[#276FE2] font-medium text-white text-[19px] w-full">다음</button>
                 </div>
             </form>
         </div>
