@@ -57,8 +57,16 @@ export default function Page() {
                 <p className="font-medium text-[24px] mt-[49px] mb-[21px]">모임 정보</p>
                 <div className="py-[28px] rounded-[10px] border border-[#CCC]">
                     <div className="mx-[26px] flex flex-col gap-[18px] mb-[37px]">
-                        <div className="flex">
-                            <div>카테고리 추가</div>
+                        <div className="flex gap-[6px]">
+                            <div className="cateBox">카테고리 추가</div>
+                            <div className="cateBox">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+                                    <path d="M0.75 6.49512H12.25" stroke="#555555"/>
+                                    <path d="M0.75 6.49512H12.25" stroke="#555555"/>
+                                    <path d="M6.50488 0.75L6.50488 12.25" stroke="#555555"/>
+                                    <path d="M6.50488 0.75L6.50488 12.25" stroke="#555555"/>
+                                </svg>
+                            </div>
                         </div>
                         <input
                             type="text"

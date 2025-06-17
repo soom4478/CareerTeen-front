@@ -14,7 +14,7 @@ export default function InfoCardList() {
             style={{ height: "auto" }}
             className="absolute right-0 bottom-[-14px]"/>
         </div>
-        <div className="font-paperlogy font-medium h-[223px] flex gap-[2%] text-[13.5px] leading-[140%]">
+        <div className="font-paperlogy font-medium h-[223px] flex gap-[2%] text-[13px] leading-[140%]">
           <div className="card-gradient2 w-full px-[4%] py-[4.5%] text-white">
             <p className="leading-[140%]">메일 이렇게만<br/>작성하세요!</p>
             <Image

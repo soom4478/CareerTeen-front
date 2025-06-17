@@ -140,4 +140,7 @@ body {
   .myInputBox {
     @apply px-[23px] py-[21px] rounded-[8px] border border-[#999] text-[19px] placeholder:text-[#858585]
   }
+  .cateBox {
+    @apply px-[15px] py-[8px] border border-[#CCC] bg-[#F5F6F8] rounded-[8px] font-medium text-[17px] text-[#555] flex justify-center items-center
+  }
 }

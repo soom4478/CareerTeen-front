@@ -23,18 +23,18 @@ export default function Page() {
                     <Image
                         src="/images/example.png"
                         alt="예시"
-                        width={225}
-                        height={0}
-                        style={{ height: "auto" }}
+                        width={210}
+                        height={270}
+                        style={{  }}
                         className="rounded-[8px]" />
                     <p className="w-[50%] absolute bottom-[23px] left-[18px] text-white font-medium text-[22px] leading-[130%]">{recommendedMento.Greetings}</p>
                     <div className="mentoImpo-card px-[18px] py-[19px]">
                         <p className="font-preendard font-semibold leading-[135%] text-[15px] text-[#276FE2] mb-[19px]">인적사항</p>
                         <div className="flex items-center gap-[6px] mb-[11px]">
-                            <p className="font-preendard font-semibold text-[20px]">{recommendedMento.info.name}</p>
-                            <p className="font-preendard font-medium leading-[130%] text-[16px] text-[#7C7C7C]">{recommendedMento.info.age}</p>
+                            <p className="font-preendard font-semibold text-[18px]">{recommendedMento.info.name}</p>
+                            <p className="font-preendard font-medium leading-[130%] text-[14px] text-[#7C7C7C]">{recommendedMento.info.age}</p>
                         </div>
-                        <p className="font-preendard font-medium text-[#333] text-[16px]">{recommendedMento.info.job}</p>
+                        <p className="font-preendard font-medium text-[#333] text-[14px]">{recommendedMento.info.job}</p>
                         <div className="absolute bottom-[18px] inline-flex flex-col items-start gap-[2px] font-preendard text-[13px] text-[#8D8D8D]">
                             {
                                 recommendedMento.info.tag.map((tag, idx) => {
