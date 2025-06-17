@@ -1,6 +1,8 @@
 interface contentProps {
     title: string;
     date: string;
+    onClick?: () => void;
+    className?: string;
 }
 
 export default function MyContentBox(content: contentProps) {

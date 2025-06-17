@@ -13,6 +13,10 @@ export default function() {
         router.push('/my/modify');
     }
 
+    const boardModifyBtnClick = () => {
+        router.push('/board/modify');
+    }
+
     const [selectedBoard, setBoard] = useState(Number);
 
     const myClub = [
@@ -86,7 +90,7 @@ export default function() {
                 <div className="flex justify-between">
                     <p className="font-semibold text-[21px]">작성한 글</p>
                     <div className="flex gap-[10px] text-[17px] text-[#555]">
-                        <button className="px-[16px] py-[9.5px] border border-[#CCC] bg-[#EEE] rounded-[50px]">수정하기</button>
+                        <button onClick={boardModifyBtnClick} className="px-[16px] py-[9.5px] border border-[#CCC] bg-[#EEE] rounded-[50px]">수정하기</button>
                         <button className="px-[16px] py-[9.5px] border border-[#CCC] rounded-[50px]">삭제하기</button>
                     </div>
                 </div>

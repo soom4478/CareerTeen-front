@@ -20,7 +20,7 @@ export default function Page() {
     };
 
     const handleUploadClick = () => {
-        fileInputRef.current?.click(); // 숨겨진 input 클릭
+        fileInputRef.current?.click();
     };
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
