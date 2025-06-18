@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { GrToast } from "react-icons/gr";
 
 type Props = {
     params: {
@@ -11,6 +12,7 @@ export default async function Page({ params }: Props) {
 
     return (
         <div className="px-[5%] mt-[27px]">
+            
             <div className="w-[100%] h-[219px] relative overflow-hidden">
                 <Image
                     src="/images/example.png"

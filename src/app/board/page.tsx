@@ -41,8 +41,8 @@ export default function Page() {
             </div>
             <div className="px-[5%] mt-[58px]">
                 <div className="flex px-[15px] py-[20px] rounded-[6px] bg-[#4F4F4F] font-semibold justify-between">
-                    <span className="text-[16px] text-white">다른 사용자들과 정보를 공유해보세요</span>
-                    <a href="/board/create" className="text-[15px] text-[#A0D3FF]">게시글 작성하기</a>
+                    <span className="text-[15px] text-white">다른 사용자들과 정보를 공유해보세요</span>
+                    <a href="/board/create" className="text-[14px] text-[#A0D3FF]">게시글 작성하기</a>
                 </div>
                 <div className="flex mt-[76px]">
                     <CategoryDropdown
