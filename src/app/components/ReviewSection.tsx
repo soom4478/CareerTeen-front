@@ -12,13 +12,13 @@ export default function ReviewSection({ data, reviewImg }: ReviewSectionProps) {
     const scrollRef1 = useRef<HTMLDivElement>(null);
     const scrollRef2 = useRef<HTMLDivElement>(null);
 
-    const CARD_WIDTH = 280; // 카드 한 개 너비 + 여유 마진 포함
+    const CARD_WIDTH = 280;
 
     const visibleCount1 = data.slice(0, 2);
     const visibleCount2 = data.slice(2);
 
     const [index1, setIndex1] = useState(0);
-    const [index2, setIndex2] = useState(visibleCount2.length - 1);
+    const [index2, setIndex2] = useState(1);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -38,9 +38,7 @@ export default function ReviewSection({ data, reviewImg }: ReviewSectionProps) {
                     left: index2 * CARD_WIDTH,
                     behavior: "smooth",
                 });
-                setIndex2((prev) =>
-                    prev - 1 < 0 ? visibleCount2.length - 1 : prev - 1
-                );
+                setIndex2((prev) => (prev + 1) % visibleCount2.length);
             }
         }, 5000);
 
