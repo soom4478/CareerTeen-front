@@ -22,8 +22,7 @@ export default function ChatInput() {
   };
 
   return (
-    <>
-      {/* 모바일*/}
+    <div>
       <div className="fixed left-1/2 transform -translate-x-1/2 bottom-[59px] w-[90%] px-5 py-4 bg-white border border-[#CCC] rounded-[15px] flex gap-2 z-20 md:hidden">
         <input
           type="text"
@@ -68,6 +67,6 @@ export default function ChatInput() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
