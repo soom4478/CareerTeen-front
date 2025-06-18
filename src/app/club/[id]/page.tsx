@@ -2,13 +2,13 @@ import Image from "next/image";
 import { GrToast } from "react-icons/gr";
 
 type Props = {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 };
 
 export default async function Page({ params }: Props) {
-    const { id } = params;
+    const { id } = await params;
 
     return (
         <div className="px-[5%] mt-[27px]">

@@ -2,13 +2,13 @@ import Image from "next/image";
 import React from "react";
 
 type Props = {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 };
 
 export default async function Page({ params }: Props) {
-    const { id } = params;
+    const { id } = await params;
 
     const commentData = [
         {
