@@ -25,7 +25,6 @@ export default function Page() {
                         alt="예시"
                         width={210}
                         height={270}
-                        style={{  }}
                         className="rounded-[8px]" />
                     <p className="w-[50%] absolute bottom-[23px] left-[18px] text-white font-medium text-[22px] leading-[130%]">{recommendedMento.Greetings}</p>
                     <div className="mentoImpo-card px-[18px] py-[19px]">

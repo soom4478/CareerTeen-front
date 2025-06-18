@@ -59,7 +59,6 @@ export default function Page() {
         if (selectedMento) {
             const confirmTerminate = window.confirm('정말 멘토 관계를 해지하시겠습니까?');
             if (confirmTerminate) {
-                // 여기에 멘토 해지 API 호출 로직 추가
                 alert('멘토 관계가 해지되었습니다.');
                 setSelectedMento(null);
             }
@@ -70,7 +69,6 @@ export default function Page() {
 
     const handleChatWithMento = () => {
         if (selectedMento) {
-            // 여기에 채팅 페이지로 이동하는 로직 추가
             router.push(`/chat?mentoId=${selectedMento}`);
         } else {
             alert('채팅할 멘토를 선택해주세요.');

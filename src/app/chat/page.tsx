@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation"; // Next.js 13 app router 전용
 import MentoChatPropile from "../components/MentoChatPropile";
 import ChatBox from "../components/ChatBox";
-import ChatInput from "../components/ChatInput";
 
 type Message = {
   id: number;
@@ -18,6 +18,8 @@ type Mento = {
 };
 
 export default function Page() {
+  const searchParams = useSearchParams();
+
   const mentoData: Mento[] = [
     { id: 1, name: "김지민", img: "/images/example.png" },
     { id: 2, name: "박지영", img: "/images/example.png" },
@@ -39,8 +41,13 @@ export default function Page() {
       { id: 1, content: "멘토 최수민입니다.", sender: "other" },
     ],
   };
+  
+  const queryId = searchParams.get("mentoId");
+  const parsedId = queryId ? parseInt(queryId, 10) : null;
 
-  const [selectedMentoId, setSelectedMentoId] = useState<number>(mentoData[0].id);
+  const validId = parsedId && mentoData.some((mento) => mento.id === parsedId) ? parsedId : mentoData[0].id;
+
+  const [selectedMentoId, setSelectedMentoId] = useState<number>(validId);
 
   const handleMentoClick = (id: number) => {
     setSelectedMentoId(id);
@@ -48,10 +55,12 @@ export default function Page() {
 
   return (
     <div className="mt-[37px] flex flex-col md:flex-row md:gap-[27px] md:px-[10%] overflow-hidden">
-      <div className="
-        horizontalScroll flex md:flex-col md:overflow-y-auto md:border-gray-300
-        gap-[10px] px-[5%] md:px-0 overflow-x-auto
-      ">
+      <div
+        className="
+          horizontalScroll flex md:flex-col md:overflow-y-auto md:border-gray-300
+          gap-[10px] px-[5%] md:px-0 overflow-x-auto
+        "
+      >
         {mentoData.map((mento) => (
           <div key={mento.id} onClick={() => handleMentoClick(mento.id)}>
             <MentoChatPropile
