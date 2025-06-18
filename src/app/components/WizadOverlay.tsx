@@ -23,24 +23,46 @@ export default function WizardOverlay() {
 
     useEffect(() => {
         const storedToken = localStorage.getItem("token");
+        console.log("storedToken:", storedToken);
         setToken(storedToken);
+        
+        // 토큰이 있으면 스크롤 복원
+        if (storedToken) {
+            document.body.style.overflow = "";
+        }
     }, []);
 
     useEffect(() => {
-        if (step !== null) {
-            document.body.style.overflow = "hidden";
+        // 토큰이 있으면 스크롤을 항상 허용
+        if (token !== null) {
+            document.body.style.overflow = "";
+            return;
         }
 
+        // 토큰이 없고 step이 활성화된 경우에만 스크롤 차단
+        if (step !== null) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        // cleanup 함수 - 컴포넌트 언마운트 시 스크롤 복원
         return () => {
             document.body.style.overflow = "";
         };
-    }, [step]);
+    }, [step, token]);
 
-    if (token === undefined || token || step === null) return null;
+    // 토큰이 있는 경우 아무것도 렌더링하지 않음
+    if (token === undefined || token !== null) return null;
 
     const goNext = () => setStep((prev) => (prev !== null ? prev + 1 : null));
     const goPrev = () => setStep((prev) => (prev !== null && prev > 0 ? prev - 1 : 0));
-    const closeAll = () => setStep(null);
+    
+    const closeAll = () => {
+        setStep(null);
+        // 명시적으로 스크롤 복원
+        document.body.style.overflow = "";
+    };
 
     const updateFormData = (data: Partial<typeof formData>) => {
         setFormData((prev) => ({ ...prev, ...data }));
@@ -84,8 +106,12 @@ export default function WizardOverlay() {
     };
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full z-50">
-            {renderCard()}
-        </div>
+        <>
+            {step !== null && (
+                <div className="fixed top-0 left-0 w-full h-full z-50">
+                    {renderCard()}
+                </div>
+            )}
+        </>
     );
 }

@@ -21,7 +21,7 @@ export default function ChatBox({ messages }: ChatBoxProps) {
   }, [messages]);
 
   return (
-    <div className="flex flex-col h-[550px] md:h-[500px] bg-[#F5F6F8] px-[5%] pt-[65px] relative md:rounded-[15px]">
+    <div className="flex flex-col h-[450px] md:h-[500px] bg-[#F5F6F8] px-[5%] pt-[65px] relative md:rounded-[15px]">
       <div
         ref={scrollRef}
         className="flex-1 overflow-auto space-y-3 pb-0">
@@ -44,7 +44,7 @@ export default function ChatBox({ messages }: ChatBoxProps) {
       </div>
       <div className="md:top-auto md:left-0 md:right-0 md:bottom-0 md:px-[28px] md:py-[19px]
                       md:flex md:items-center md:justify-between
-                      fixed md:relative">
+                      fixed md:relative w-full">
         <ChatInput />
       </div>
     </div>

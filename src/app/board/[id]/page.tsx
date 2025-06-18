@@ -37,8 +37,8 @@ export default async function Page({ params }: Props) {
         <div>
             <div className="px-[5%] mt-[42px]">
                 <div className="bg-[#1AA462] rounded-[10px] relative w-full py-[20.5px] text-white">
-                    <p className="text-center font-semibold text-[24px]">{boardData.title}</p>
-                    <span className="absolute bottom-[11px] right-[18px] text-[15px]">{boardData.date}</span>
+                    <p className="text-center font-semibold text-[23px]">{boardData.title}</p>
+                    <span className="absolute bottom-[7px] right-[18px] text-[14px]">{boardData.date}</span>
                 </div>
                 <div className="text-[#111] leading-[170%] text-[18px] mt-[61px]">{boardData.content}</div>
             </div>

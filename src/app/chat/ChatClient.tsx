@@ -74,7 +74,7 @@ export default function ChatClient() {
 
       <div
         className="
-          flex flex-col flex-1 bg-white md:relative fixed bottom-0 left-0 right-0
+          w-full flex flex-col flex-1 bg-white md:relative fixed bottom-0 left-0 right-0
           md:top-auto md:left-auto md:right-auto md:bottom-auto
         "
       >
