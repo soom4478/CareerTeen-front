@@ -9,7 +9,7 @@ import JoinCard4 from "./JoinCard4";
 import JoinCard5 from "./JoinCard5";
 
 export default function WizardOverlay() {
-    const [userId, setUserId] = useState<string | null | undefined>(undefined);
+    const [token, setToken] = useState<string | null | undefined>(undefined);
     const [step, setStep] = useState<number | null>(0);
     const [formData, setFormData] = useState({
         username: "",
@@ -22,13 +22,21 @@ export default function WizardOverlay() {
     });
 
     useEffect(() => {
-        const storedUserId = localStorage.getItem("userId");
-        setUserId(storedUserId);
+        const storedToken = localStorage.getItem("token");
+        setToken(storedToken);
     }, []);
 
-    if (userId === undefined) return null; // 불러오는 중
+    useEffect(() => {
+        if (step !== null) {
+            document.body.style.overflow = "hidden";
+        }
 
-    if(userId) return null; // 로그인 되어 있음
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [step]);
+
+    if (token === undefined || token || step === null) return null;
 
     const goNext = () => setStep((prev) => (prev !== null ? prev + 1 : null));
     const goPrev = () => setStep((prev) => (prev !== null && prev > 0 ? prev - 1 : 0));
@@ -41,33 +49,20 @@ export default function WizardOverlay() {
     const handleSubmit = async () => {
         try {
             const res = await fetch("/api/join", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             });
 
             if (!res.ok) throw new Error("회원가입 실패");
 
             alert("회원가입이 완료되었습니다!");
-
             setStep(0);
         } catch (error) {
             alert("회원가입 중 문제가 발생했습니다.");
             console.error(error);
         }
     };
-
-    useEffect(() => {
-        if (step !== null) {
-            document.body.style.overflow = "hidden";
-        }
-
-        return () => {
-            document.body.style.overflow = "";
-        };
-    }, [step]);
-
-    if (step === null) return null;
 
     const renderCard = () => {
         switch (step) {
@@ -82,7 +77,7 @@ export default function WizardOverlay() {
             case 4:
                 return <JoinCard4 onNext={goNext} onBack={goPrev} setFormData={updateFormData} />;
             case 5:
-                return <JoinCard5 onBack={goPrev} onSubmit={handleSubmit} setFormData={updateFormData}/>;
+                return <JoinCard5 onBack={goPrev} onSubmit={handleSubmit} setFormData={updateFormData} />;
             default:
                 return null;
         }

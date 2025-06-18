@@ -13,39 +13,45 @@ export default function LoginCard({ onNext, onClose }: StepCardProps) {
         e.preventDefault();
 
         try {
-            const response = await fetch('/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username,
-                    password,
-                }),
-            });
-
-            // 테스트용 -> 나중에 삭제할 것
-            onClose();
+            const response = await fetch(
+                'https://port-0-career-teen-backend-mc1vuqgt979868f3.sel5.cloudtype.app/auth/login',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password,
+                    }),
+                }
+            );
 
             if (!response.ok) {
-                localStorage.setItem('userId', username);
                 alert('로그인 실패');
                 return;
             }
 
             const data = await response.json();
-            localStorage.setItem('userId', username);
-            console.log('로그인 성공:', data);
 
-            onClose();
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+                console.log('로그인 성공:', data);
+                onClose();
+            } else {
+                alert('토큰이 응답에 없습니다.');
+            }
         } catch (err) {
             console.error('로그인 오류:', err);
+            alert('로그인 중 오류가 발생했습니다.');
         }
     };
 
     return (
-        <div className="w-full h-full absolute z-20 px-[5%] overflow-hidden flex items-center backdrop-blur-[3px]"
-            style={{ backgroundColor: 'rgba(2, 9, 17, 0.8)' }}>
+        <div
+            className="w-full h-full absolute z-20 px-[5%] overflow-hidden flex items-center backdrop-blur-[3px]"
+            style={{ backgroundColor: 'rgba(2, 9, 17, 0.8)' }}
+        >
             <form className="bg-white w-full px-[20px] py-[40px] rounded-[12px]">
                 <p className="font-semibold text-[20px] text-center mb-[40px]">로그인</p>
                 <div className="flex flex-col gap-[10px] mb-[24px]">
