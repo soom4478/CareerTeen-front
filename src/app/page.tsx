@@ -3,6 +3,7 @@
 import InfoCardList from "./components/InfoCardList";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import ReviewSection from "./components/ReviewSection";
 
 export default function Home() {
     const router = useRouter();
@@ -95,57 +96,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="bg-[#E0E6F2] flex flex-col mb-[98px]">
-                <span className="font-paperlogy font-medium text-[24px] mt-[100px] mx-auto mb-[46px]">커리어틴을 사용한 선배들의 후기</span>
-                <div className="horizontalScroll flex gap-[15px] mb-[46px] overflow-x-auto whitespace-nowrap px-[24px]">
-                    {data?.map((review, idx) => {
-                        if(idx < 2) {
-                            return (
-                                <div
-                                    className="relative bg-white pl-[32px] pt-[36px] pb-[27px] pr-[100px] rounded-[12px]"
-                                    key={idx} >
-                                    <p className="font-preendard font-semibold text-[18px] w-[200px] whitespace-normal mb-[80px]">
-                                        {review.text}
-                                    </p>
-                                    <p className="text-[12px] text-[#888]">
-                                        {review.info}
-                                    </p>
-                                    <Image
-                                        src={reviewImg[idx]}
-                                        alt="후기 캐릭터 이미지"
-                                        width={124}
-                                        height={144}
-                                        className="w-[124px] h-[144px] object-cover absolute bottom-[19px] right-[14px]"/>
-                                </div>
-                            )
-                        }
-                    })}
-                </div>
-                <div className="horizontalScroll flex gap-[15px] mb-[46px] overflow-x-auto whitespace-nowrap px-[24px]">
-                    {data?.map((review, idx) => {
-                        if(idx >= 2) {
-                            return (
-                                <div
-                                    className="relative bg-white pl-[32px] pt-[36px] pb-[27px] pr-[100px] rounded-[12px]"
-                                    key={idx} >
-                                    <p className="font-preendard font-semibold text-[18px] w-[200px] whitespace-normal mb-[80px]">
-                                        {review.text}
-                                    </p>
-                                    <p className="text-[12px] text-[#888]">
-                                        {review.info}
-                                    </p>
-                                    <Image
-                                        src={reviewImg[idx]}
-                                        alt="후기 캐릭터 이미지"
-                                        width={124}
-                                        height={144}
-                                        className="w-[124px] h-[144px] object-cover absolute bottom-[19px] right-[14px]"/>
-                                </div>
-                            )
-                        }
-                    })}
-                </div>
-            </div>
+            <ReviewSection data={data} reviewImg={reviewImg} />
         </div>
     )
 }

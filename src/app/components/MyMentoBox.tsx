@@ -5,15 +5,22 @@ interface mentoProps {
     name: string;
     job: string;
     age: number;
+    onClick?: () => void;
+    isSelected?: boolean;
 }
 
 export default function MyMentoBox(mento: mentoProps) {
 
     return (
-        <div className="rounded-[8px] px-[17px] py-[15px] flex gap-[23px]">
+        <div 
+            className={`rounded-[8px] px-[17px] py-[15px] flex gap-[23px] cursor-pointer transition-colors ${
+                mento.isSelected ? 'bg-[#E7E7E7]' : 'bg-[#F5F5F5] hover:bg-[#EEEEEE]'
+            }`}
+            onClick={mento.onClick}
+        >
             <div className="w-[84px] h-[84px] relative overflow-hidden">
                 <Image
-                src={mento.imgUrl}
+                src={mento.imgUrl || "/images/default-profile.png"}
                 alt="멘토 프로필"
                 fill
                 style={{ objectFit: "cover" }}
