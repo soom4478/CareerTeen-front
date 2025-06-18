@@ -28,11 +28,13 @@ export default function LoginCard({ onNext, onClose }: StepCardProps) {
             onClose();
 
             if (!response.ok) {
+                localStorage.setItem('userId', username);
                 alert('로그인 실패');
                 return;
             }
 
             const data = await response.json();
+            localStorage.setItem('userId', username);
             console.log('로그인 성공:', data);
 
             onClose();

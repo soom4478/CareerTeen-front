@@ -9,12 +9,8 @@ import JoinCard4 from "./JoinCard4";
 import JoinCard5 from "./JoinCard5";
 
 export default function WizardOverlay() {
+    const [userId, setUserId] = useState<string | null | undefined>(undefined);
     const [step, setStep] = useState<number | null>(0);
-
-    const goNext = () => setStep((prev) => (prev !== null ? prev + 1 : null));
-    const goPrev = () => setStep((prev) => (prev !== null && prev > 0 ? prev - 1 : 0));
-    const closeAll = () => setStep(null);
-
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -24,6 +20,19 @@ export default function WizardOverlay() {
         resolution: "",
         role: "",
     });
+
+    useEffect(() => {
+        const storedUserId = localStorage.getItem("userId");
+        setUserId(storedUserId);
+    }, []);
+
+    if (userId === undefined) return null; // 불러오는 중
+
+    if(userId) return null; // 로그인 되어 있음
+
+    const goNext = () => setStep((prev) => (prev !== null ? prev + 1 : null));
+    const goPrev = () => setStep((prev) => (prev !== null && prev > 0 ? prev - 1 : 0));
+    const closeAll = () => setStep(null);
 
     const updateFormData = (data: Partial<typeof formData>) => {
         setFormData((prev) => ({ ...prev, ...data }));
