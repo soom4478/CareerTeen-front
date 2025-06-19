@@ -90,14 +90,14 @@ export default function Page() {
         {
             id: 1,
             imgUrl: "",
-            name: "강지민",
+            name: "김지민",
             job: "인사팀",
             age: 27
         },
         {
             id: 2,
             imgUrl: "",
-            name: "ㅇㅇㅇ",
+            name: "박지영",
             job: "디자이너",
             age: 30
         },

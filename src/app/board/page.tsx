@@ -1,13 +1,26 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CategoryDropdown from "../components/CategoryDropdown";
 import { boardList } from "../data/boards";
 import BoardCard from "../components/BoardCard";
 import Link from "next/link";
 
+interface ApiBoardItem {
+    id: number;
+    category: string;
+    title: string;
+    text: string;
+    img: string;
+    createdAt: string;
+    view: number;
+}
+
 export default function Page() {
     const [selected, setSelected] = React.useState<'최신순' | '인기순'>('최신순');
+    const [latestBoards, setLatestBoards] = useState<ApiBoardItem[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     const categories = ['시험·자격증', '혜택', '취업', '회사', '진로·미래'];
     const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -22,6 +35,42 @@ export default function Page() {
         setSelectedCategory("");
     };
 
+    useEffect(() => {
+        const fetchLatestBoards = async () => {
+            try {
+                setLoading(true);
+                const token = localStorage.getItem('token');
+                
+                if (!token) {
+                    setError('토큰이 없습니다. 로그인이 필요합니다.');
+                    return;
+                }
+
+                const response = await fetch('https://port-0-career-teen-backend-mc1vuqgt979868f3.sel5.cloudtype.app/bulletins/recommended', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                setLatestBoards(data);
+            } catch (err) {
+                setError(err instanceof Error ? err.message : '데이터를 불러오는데 실패했습니다.');
+                console.error('API 호출 에러:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchLatestBoards();
+    }, []);
+
     return (
         <div className="mt-[65px]">
             <div className="px-[5%]">
@@ -29,15 +78,31 @@ export default function Page() {
                 <p className="font-medium text-[16px] text-[#999]">커리어틴이 당신의 관심있을만한 글을 찾았어요</p>
             </div>
             <div className="horizontalScroll gap-[12px] flex overflow-auto px-[5%] mt-[33px]">
-            {
-                boardList.map((board, idx) => (
-                <Link href={`/board/${board.id}`} key={idx}>
-                    <div className="bg-[linear-gradient(180deg,rgba(19,19,19,0)_0%,rgba(19,19,19,0.6)_100%),url('/images/boardExImg.png')] bg-cover bg-center w-[319px] h-[187px] flex items-end rounded-[12px] px-[26px] py-[18px]">
-                    <p className="text-white text-[22px] font-semibold line-clamp-1">{board.title}</p>
-                    </div>
-                </Link>
+            {loading ? (
+                // 로딩 상태
+                <div className="flex items-center justify-center w-full h-[187px]">
+                    <p className="text-[#999]">로딩 중...</p>
+                </div>
+            ) : error ? (
+                // 에러 상태
+                <div className="flex items-center justify-center w-full h-[187px]">
+                    <p className="text-red-500">{error}</p>
+                </div>
+            ) : (
+                // 데이터 로드 완료
+                latestBoards.map((board, idx) => (
+                    <Link href={`/board/${board.id}`} key={idx}>
+                        <div 
+                            className="bg-cover bg-center w-[319px] h-[187px] flex items-end rounded-[12px] px-[26px] py-[18px]"
+                            style={{
+                                background: `linear-gradient(180deg, rgba(19,19,19,0) 0%, rgba(19,19,19,0.6) 100%), url('${board.img}') center/cover`
+                            }}
+                        >
+                            <p className="text-white text-[22px] font-semibold line-clamp-1">{board.title}</p>
+                        </div>
+                    </Link>
                 ))
-            }   
+            )}   
             </div>
             <div className="px-[5%] mt-[58px]">
                 <div className="flex px-[15px] py-[20px] rounded-[6px] bg-[#4F4F4F] font-semibold justify-between">

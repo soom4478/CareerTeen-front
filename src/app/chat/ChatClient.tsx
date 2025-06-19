@@ -32,10 +32,10 @@ export default function ChatClient() {
       { id: 2, content: "안녕하세요!", sender: "me" },
     ],
     2: [
-      { id: 1, content: "박지영입니다. 궁금한 거 있으신가요?", sender: "other" },
-      { id: 2, content: "네, 질문 있어요.", sender: "me" },
-      { id: 3, content: "박지영입니다. 궁금한 거 있으신가요?", sender: "other" },
-      { id: 4, content: "네, 질문 있어요.", sender: "me" },
+      { id: 1, content: "안녕하세요, 박지영입니다. 궁금한 점 있으신가요?", sender: "other" },
+      { id: 2, content: "안녕하세요! 몇 가지 여쭤보고 싶은 게 있어요.", sender: "me" },
+      { id: 3, content: "네, 편하게 질문해주세요.", sender: "other" },
+      { id: 4, content: "감사합니다! 첫 번째로는요...", sender: "me" }
     ],
     3: [
       { id: 1, content: "멘토 최수민입니다.", sender: "other" },
