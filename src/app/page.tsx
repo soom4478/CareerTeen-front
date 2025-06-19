@@ -73,7 +73,7 @@ export default function Home() {
             </div>
             <div className="mt-[89px] px-[23px] py-[74px] bg-white">
                 <p className="text-[34px] font-paperlogy font-medium leading-[130%] mb-[17px]">취업 하기 전<br/>가장 중요한 단계</p>
-                <p className="text-[16px] text-[#888] font-preendard mb-[35px]">취업하기 전 이 내용을 확인하고 모두합격하시길 바랍니다!</p>
+                <p className="text-[15px] text-[#888] font-preendard mb-[35px]">취업하기 전 이 내용을 확인하고 모두합격하시길 바랍니다!</p>
                 <div className="flex flex-col gap-[20px]">
                 {
                     step.map((item, idx) => (
